@@ -22,15 +22,24 @@ const injectContext = PassedComponent => {
 		);
 
 		useEffect(() => {
-			/**
-			 * EDIT THIS!
-			 * This function is the equivalent to "window.onLoad", it only runs once on the entire application lifetime
-			 * you should do your ajax requests or fetch api requests here. Do not use setState() to save data in the
-			 * store, instead use actions, like this:
-			 *
-			 * state.actions.loadSomeData(); <---- calling this function from the flux.js actions
-			 *
-			 **/
+			let url = "https://playground.4geeks.com/contact/agendas?offset=0&limit=25"; 
+			fetch(url)
+			.then(response => {
+				if (!response.ok) {
+				  throw new Error("Network response was not ok " + response.statusText);
+				}
+				return response.json();
+			  })
+			  .then(data => {
+				setState({
+					store: Object.assign(state.store, data),
+					actions: { ...state.actions }
+				}) ;
+				console.log("Data retrieved:", data); // handle the JSON data
+			  })
+			  .catch(error => {
+				console.error("Fetch error:", error); // handle any errors
+			  });
 		}, []);
 
 		// The initial value for the context is not null anymore, but the current state of this component,
