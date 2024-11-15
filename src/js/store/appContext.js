@@ -35,7 +35,8 @@ const injectContext = PassedComponent => {
 					store: Object.assign(state.store, data),
 					actions: { ...state.actions }
 				}) ;
-				console.log("Data retrieved:", data); // handle the JSON data
+				
+				console.log("Data retrieved:", state.store); // handle the JSON data
 			  })
 			  .catch(error => {
 				console.error("Fetch error:", error); // handle any errors
