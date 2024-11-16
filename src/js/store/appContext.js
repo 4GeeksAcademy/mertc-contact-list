@@ -22,7 +22,7 @@ const injectContext = PassedComponent => {
 		);
 
 		useEffect(() => {
-			let url = "https://playground.4geeks.com/contact/agendas?offset=0&limit=25"; 
+			let url = "https://playground.4geeks.com/contact/agendas?offset=0&limit=15"; 
 			fetch(url)
 			.then(response => {
 				if (!response.ok) {
