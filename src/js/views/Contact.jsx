@@ -1,13 +1,13 @@
 import React, {useContext, useState, useEffect} from "react"; 
 import {Context} from "../store/appContext.js";
 
-function Contact({name,email,phone, address }) {
+function Contact({id,name,email,phone, address }) {
 
   const {store, actions} = useContext(Context);
    
   return (
      
-  <div className="d-flex w-75 py-2 mx-auto">
+  <div className="d-flex w-75 p-2 mx-auto border">
     <div className="col-2" >
        
       <img className="img-fluid rounded-circle" src="https://placehold.co/600" alt="profile" />
@@ -37,7 +37,7 @@ function Contact({name,email,phone, address }) {
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-pencil mx-2" viewBox="0 0 16 16">
         <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"/>
       </svg>
-      <svg onClick={(name)=>actions.deleteContact(name)} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash-fill mx-2" viewBox="0 0 16 16">
+      <svg onClick={(name)=>actions.deleteContact(id)} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash-fill mx-2" viewBox="0 0 16 16">
         <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
       </svg>  
     </div> 

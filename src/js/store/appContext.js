@@ -22,7 +22,7 @@ const injectContext = PassedComponent => {
 		);
 
 		useEffect(() => {
-			let url = "https://playground.4geeks.com/contact/agendas?offset=0&limit=15"; 
+			let url = "https://playground.4geeks.com/contact/agendas/mertc"; 
 			fetch(url)
 			.then(response => {
 				if (!response.ok) {
@@ -35,8 +35,8 @@ const injectContext = PassedComponent => {
 					store: Object.assign(state.store, data),
 					actions: { ...state.actions }
 				}) ;
-				
 				console.log("Data retrieved:", state.store); // handle the JSON data
+				
 			  })
 			  .catch(error => {
 				console.error("Fetch error:", error); // handle any errors
