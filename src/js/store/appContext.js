@@ -22,7 +22,16 @@ const injectContext = PassedComponent => {
 		);
 
 		useEffect(() => {
+			
+			console.log("appContext useeffects just ran");
 			let url = "https://playground.4geeks.com/contact/agendas/mertc"; 
+			fetch(url,  {
+				method: 'POST', // Specify the HTTP method
+				headers: {
+				'Content-Type': 'application/json' // Inform the server that data is JSON
+				} 
+			})
+
 			fetch(url)
 			.then(response => {
 				if (!response.ok) {
