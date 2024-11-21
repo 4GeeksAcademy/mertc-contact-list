@@ -33,18 +33,19 @@ const AddContact = () => {
     const { name, value } = e.target;
     setContact({ ...contact, [name]: value });
   };
-
+   
   // Handle form submission
-  const handleSubmit = () => {
+    async function handleSubmit()  {
     if (id) {
       // Update existing contact
-      actions.updateContact(id, contact);
+      actions.editContact(id, contact);
     } else {
       // Add new contact
-      actions.addContact(contact);
+      await actions.addContact(contact);
+      
     }
 
-    navigate("/"); // Redirect to main contacts page
+     // Redirect to main contacts page
   };
 
   return (

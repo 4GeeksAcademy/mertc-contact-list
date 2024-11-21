@@ -9,6 +9,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				// getActions().changeColor(0, "green");
 			},
 			getContactData: (slug) => {
+				console.log("getContactData working");
 				let url= `https://playground.4geeks.com/contact/agendas/${slug}/contacts`;
 				fetch(url)
 				.then(response => {
@@ -27,9 +28,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					fetch().then().then(data => setStore({ "foo": data.bar }))
 				*/
 			},
-			editContact: (updatedData) => {
+			editContact: (id, updatedData) => {
 				
-				let url= `https://playground.4geeks.com/contact/agendas/mertc/contacts${id}`;
+				let url= `https://playground.4geeks.com/contact/agendas/mertc/contacts/${id}`;
 				fetch(url, {
 					method: 'PUT', // HTTP method for updating resources
 					headers: {
@@ -81,14 +82,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 				.then(response => {
 					if (!response.ok) {
+
 						throw new Error(`HTTP error! Status: ${response}`);
 					} 
-					else
-					console.log(`response to post: `,response);
+					else{
+						console.log(`response to post: `,response);
+						getActions().getContactData("mertc");
+					}
 				})
 				.catch(error => {
 					console.error('Error:', error);
 				});
+				
 				 
 				 
 			},
